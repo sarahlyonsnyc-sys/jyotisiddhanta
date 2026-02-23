@@ -105,15 +105,25 @@ footer{padding:20px 0;text-align:center;border-top:1px solid rgba(200,50,50,.08)
     <div class="form-group"><label>Name</label><input id="inp-name" type="text" placeholder="Enter Name of Chart"></div>
     <div class="form-group"><label>Date (YYYY-MM-DD)</label><input id="inp-date" type="date" value="2026-02-23"></div>
     <div class="form-group"><label>Time</label><input id="inp-time" type="time" value="14:38" step="1"></div>
-    <div class="form-group"><label>Location</label><input id="inp-loc" type="text" value="Fremont, California"></div>
+    <div class="form-group" style="position:relative">
+      <label>Location</label>
+      <input id="inp-loc" type="text" value="Fremont, California" autocomplete="off" placeholder="Type a city...">
+      <div id="loc-dropdown" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:100;max-height:240px;overflow-y:auto;background:rgba(20,5,10,.97);border:1px solid rgba(200,50,50,.35);border-top:none;border-radius:0 0 4px 4px;box-shadow:0 8px 24px rgba(0,0,0,.6)"></div>
+    </div>
   </div>
   <div class="form-row" style="margin-top:8px">
     <div class="form-group" style="min-width:100px;flex:.6"><label>Latitude</label><input id="inp-lat" type="number" step="0.0001" value="37.5585"></div>
     <div class="form-group" style="min-width:100px;flex:.6"><label>Longitude</label><input id="inp-lon" type="number" step="0.0001" value="-122.0105"></div>
     <div class="form-group" style="min-width:100px;flex:.6"><label>Timezone</label>
       <select id="inp-tz">
-        <option value="-8">PST (UTC-8)</option><option value="-7">MST (UTC-7)</option><option value="-6">CST (UTC-6)</option><option value="-5">EST (UTC-5)</option>
-        <option value="0">UTC</option><option value="1">CET (UTC+1)</option><option value="5.5">IST (UTC+5:30)</option><option value="8">CST (UTC+8)</option><option value="9">JST (UTC+9)</option>
+        <option value="-12">UTC-12</option><option value="-11">UTC-11</option><option value="-10">HST (UTC-10)</option><option value="-9.5">UTC-9:30</option><option value="-9">AKST (UTC-9)</option>
+        <option value="-8" selected>PST (UTC-8)</option><option value="-7">MST (UTC-7)</option><option value="-6">CST (UTC-6)</option><option value="-5">EST (UTC-5)</option><option value="-4">AST (UTC-4)</option>
+        <option value="-3.5">NST (UTC-3:30)</option><option value="-3">BRT (UTC-3)</option><option value="-2">UTC-2</option><option value="-1">UTC-1</option>
+        <option value="0">UTC / GMT</option><option value="1">CET (UTC+1)</option><option value="2">EET (UTC+2)</option><option value="3">MSK (UTC+3)</option><option value="3.5">IRST (UTC+3:30)</option>
+        <option value="4">GST (UTC+4)</option><option value="4.5">AFT (UTC+4:30)</option><option value="5">PKT (UTC+5)</option><option value="5.5">IST (UTC+5:30)</option><option value="5.75">NPT (UTC+5:45)</option>
+        <option value="6">BST (UTC+6)</option><option value="6.5">MMT (UTC+6:30)</option><option value="7">ICT (UTC+7)</option><option value="8">CST/HKT (UTC+8)</option><option value="8.75">ACWST (UTC+8:45)</option>
+        <option value="9">JST/KST (UTC+9)</option><option value="9.5">ACST (UTC+9:30)</option><option value="10">AEST (UTC+10)</option><option value="10.5">LHST (UTC+10:30)</option>
+        <option value="11">SBT (UTC+11)</option><option value="12">NZST (UTC+12)</option><option value="12.75">CHAST (UTC+12:45)</option><option value="13">TOT (UTC+13)</option><option value="14">LINT (UTC+14)</option>
       </select>
     </div>
     <div class="form-group" style="min-width:100px;flex:.6"><label>Ayanāṃśa</label>
@@ -573,6 +583,131 @@ document.getElementById('btn-now').addEventListener('click',function(){
 });
 
 render();
+
+// ═══════════════════════════════════════════════════════════════════
+// LOCATION DATABASE & AUTOCOMPLETE
+// ═══════════════════════════════════════════════════════════════════
+const CITIES=[
+// North America
+["New York, NY, USA",40.7128,-74.0060,-5],["Los Angeles, CA, USA",34.0522,-118.2437,-8],["Chicago, IL, USA",41.8781,-87.6298,-6],["Houston, TX, USA",29.7604,-95.3698,-6],
+["Phoenix, AZ, USA",33.4484,-112.0740,-7],["Philadelphia, PA, USA",39.9526,-75.1652,-5],["San Antonio, TX, USA",29.4241,-98.4936,-6],["San Diego, CA, USA",32.7157,-117.1611,-8],
+["Dallas, TX, USA",32.7767,-96.7970,-6],["San Jose, CA, USA",37.3382,-121.8863,-8],["Austin, TX, USA",30.2672,-97.7431,-6],["Jacksonville, FL, USA",30.3322,-81.6557,-5],
+["San Francisco, CA, USA",37.7749,-122.4194,-8],["Seattle, WA, USA",47.6062,-122.3321,-8],["Denver, CO, USA",39.7392,-104.9903,-7],["Washington, DC, USA",38.9072,-77.0369,-5],
+["Nashville, TN, USA",36.1627,-86.7816,-6],["Boston, MA, USA",42.3601,-71.0589,-5],["Portland, OR, USA",45.5152,-122.6784,-8],["Las Vegas, NV, USA",36.1699,-115.1398,-8],
+["Atlanta, GA, USA",33.7490,-84.3880,-5],["Miami, FL, USA",25.7617,-80.1918,-5],["Minneapolis, MN, USA",44.9778,-93.2650,-6],["Detroit, MI, USA",42.3314,-83.0458,-5],
+["Honolulu, HI, USA",21.3069,-157.8583,-10],["Anchorage, AK, USA",61.2181,-149.9003,-9],["Salt Lake City, UT, USA",40.7608,-111.8910,-7],["Fremont, CA, USA",37.5585,-122.0105,-8],
+["Taos, NM, USA",36.4072,-105.5734,-7],["Santa Fe, NM, USA",35.6870,-105.9378,-7],["Albuquerque, NM, USA",35.0844,-106.6504,-7],
+["Toronto, ON, Canada",43.6532,-79.3832,-5],["Vancouver, BC, Canada",49.2827,-123.1207,-8],["Montreal, QC, Canada",45.5017,-73.5673,-5],["Calgary, AB, Canada",51.0447,-114.0719,-7],
+["Mexico City, Mexico",19.4326,-99.1332,-6],["Guadalajara, Mexico",20.6597,-103.3496,-6],["Havana, Cuba",23.1136,-82.3666,-5],
+// South America
+["São Paulo, Brazil",-23.5505,-46.6333,-3],["Buenos Aires, Argentina",-34.6037,-58.3816,-3],["Rio de Janeiro, Brazil",-22.9068,-43.1729,-3],["Bogotá, Colombia",4.7110,-74.0721,-5],
+["Lima, Peru",-12.0464,-77.0428,-5],["Santiago, Chile",-33.4489,-70.6693,-4],["Caracas, Venezuela",10.4806,-66.9036,-4],["Quito, Ecuador",-0.1807,-78.4678,-5],
+// Europe
+["London, UK",51.5074,-0.1278,0],["Paris, France",48.8566,2.3522,1],["Berlin, Germany",52.5200,13.4050,1],["Madrid, Spain",40.4168,-3.7038,1],
+["Rome, Italy",41.9028,12.4964,1],["Amsterdam, Netherlands",52.3676,4.9041,1],["Vienna, Austria",48.2082,16.3738,1],["Brussels, Belgium",50.8503,4.3517,1],
+["Stockholm, Sweden",59.3293,18.0686,1],["Oslo, Norway",59.9139,10.7522,1],["Copenhagen, Denmark",55.6761,12.5683,1],["Helsinki, Finland",60.1699,24.9384,2],
+["Lisbon, Portugal",38.7223,-9.1393,0],["Dublin, Ireland",53.3498,-6.2603,0],["Zurich, Switzerland",47.3769,8.5417,1],["Prague, Czech Republic",50.0755,14.4378,1],
+["Warsaw, Poland",52.2297,21.0122,1],["Budapest, Hungary",47.4979,19.0402,1],["Barcelona, Spain",41.3874,2.1686,1],["Munich, Germany",48.1351,11.5820,1],
+["Athens, Greece",37.9838,23.7275,2],["Istanbul, Turkey",41.0082,28.9784,3],["Bucharest, Romania",44.4268,26.1025,2],["Moscow, Russia",55.7558,37.6173,3],
+["St. Petersburg, Russia",59.9311,30.3609,3],["Kyiv, Ukraine",50.4501,30.5234,2],["Edinburgh, Scotland, UK",55.9533,-3.1883,0],
+// Middle East
+["Dubai, UAE",25.2048,55.2708,4],["Abu Dhabi, UAE",24.4539,54.3773,4],["Riyadh, Saudi Arabia",24.7136,46.6753,3],["Jeddah, Saudi Arabia",21.5433,39.1728,3],
+["Doha, Qatar",25.2854,51.5310,3],["Kuwait City, Kuwait",29.3759,47.9774,3],["Muscat, Oman",23.5880,58.3829,4],["Manama, Bahrain",26.2285,50.5860,3],
+["Tehran, Iran",35.6892,51.3890,3.5],["Baghdad, Iraq",33.3128,44.3615,3],["Amman, Jordan",31.9454,35.9284,2],["Beirut, Lebanon",33.8938,35.5018,2],
+["Jerusalem, Israel",31.7683,35.2137,2],["Tel Aviv, Israel",32.0853,34.7818,2],
+// South Asia
+["Mumbai, India",19.0760,72.8777,5.5],["New Delhi, India",28.6139,77.2090,5.5],["Bangalore, India",12.9716,77.5946,5.5],["Hyderabad, India",17.3850,78.4867,5.5],
+["Chennai, India",13.0827,80.2707,5.5],["Kolkata, India",22.5726,88.3639,5.5],["Ahmedabad, India",23.0225,72.5714,5.5],["Pune, India",18.5204,73.8567,5.5],
+["Jaipur, India",26.9124,75.7873,5.5],["Lucknow, India",26.8467,80.9462,5.5],["Varanasi, India",25.3176,82.9739,5.5],["Surat, India",21.1702,72.8311,5.5],
+["Patna, India",25.6093,85.1376,5.5],["Indore, India",22.7196,75.8577,5.5],["Bhopal, India",23.2599,77.4126,5.5],["Chandigarh, India",30.7333,76.7794,5.5],
+["Thiruvananthapuram, India",8.5241,76.9366,5.5],["Kochi, India",9.9312,76.2673,5.5],["Ujjain, India",23.1765,75.7885,5.5],["Rishikesh, India",30.0869,78.2676,5.5],
+["Amritsar, India",31.6340,74.8723,5.5],["Goa, India",15.2993,74.1240,5.5],["Nagpur, India",21.1458,79.0882,5.5],["Coimbatore, India",11.0168,76.9558,5.5],
+["Karachi, Pakistan",24.8607,67.0011,5],["Lahore, Pakistan",31.5204,74.3587,5],["Islamabad, Pakistan",33.6844,73.0479,5],
+["Dhaka, Bangladesh",23.8103,90.4125,6],["Colombo, Sri Lanka",6.9271,79.8612,5.5],["Kathmandu, Nepal",27.7172,85.3240,5.75],
+// East & SE Asia
+["Beijing, China",39.9042,116.4074,8],["Shanghai, China",31.2304,121.4737,8],["Guangzhou, China",23.1291,113.2644,8],["Shenzhen, China",22.5431,114.0579,8],
+["Hong Kong, China",22.3193,114.1694,8],["Taipei, Taiwan",25.0330,121.5654,8],["Tokyo, Japan",35.6762,139.6503,9],["Osaka, Japan",34.6937,135.5023,9],
+["Kyoto, Japan",35.0116,135.7681,9],["Seoul, South Korea",37.5665,126.9780,9],["Busan, South Korea",35.1796,129.0756,9],
+["Bangkok, Thailand",13.7563,100.5018,7],["Singapore",1.3521,103.8198,8],["Kuala Lumpur, Malaysia",3.1390,101.6869,8],
+["Jakarta, Indonesia",-6.2088,106.8456,7],["Bali, Indonesia",-8.3405,115.0920,8],["Manila, Philippines",14.5995,120.9842,8],
+["Hanoi, Vietnam",21.0278,105.8342,7],["Ho Chi Minh City, Vietnam",10.8231,106.6297,7],["Phnom Penh, Cambodia",11.5564,104.9282,7],
+["Yangon, Myanmar",16.8661,96.1951,6.5],["Ulaanbaatar, Mongolia",47.8864,106.9057,8],
+// Oceania
+["Sydney, Australia",-33.8688,151.2093,10],["Melbourne, Australia",-37.8136,144.9631,10],["Brisbane, Australia",-27.4698,153.0251,10],["Perth, Australia",-31.9505,115.8605,8],
+["Auckland, New Zealand",-36.8485,174.7633,12],["Wellington, New Zealand",-41.2865,174.7762,12],
+// Africa
+["Cairo, Egypt",30.0444,31.2357,2],["Lagos, Nigeria",6.5244,3.3792,1],["Nairobi, Kenya",-1.2921,36.8219,3],["Cape Town, South Africa",-33.9249,18.4241,2],
+["Johannesburg, South Africa",-26.2041,28.0473,2],["Accra, Ghana",5.6037,-0.1870,0],["Addis Ababa, Ethiopia",9.0250,38.7469,3],["Casablanca, Morocco",33.5731,-7.5898,1],
+["Tunis, Tunisia",36.8065,10.1815,1],["Dar es Salaam, Tanzania",-6.7924,39.2083,3],
+// Central Asia
+["Tashkent, Uzbekistan",41.2995,69.2401,5],["Almaty, Kazakhstan",43.2220,76.8512,6],["Tbilisi, Georgia",41.7151,44.8271,4],["Baku, Azerbaijan",40.4093,49.8671,4],
+["Yerevan, Armenia",40.1792,44.4991,4],
+];
+
+const locInput=document.getElementById('inp-loc');
+const locDrop=document.getElementById('loc-dropdown');
+let locSelIdx=-1;
+
+function filterCities(q){
+  if(!q||q.length<2)return[];
+  const s=q.toLowerCase();
+  // Score: starts-with gets priority
+  return CITIES.filter(c=>c[0].toLowerCase().includes(s))
+    .sort((a,b)=>{
+      const aS=a[0].toLowerCase().startsWith(s)?0:1;
+      const bS=b[0].toLowerCase().startsWith(s)?0:1;
+      return aS-bS;
+    }).slice(0,10);
+}
+
+function showDropdown(matches){
+  locSelIdx=-1;
+  if(!matches.length){locDrop.style.display='none';return}
+  locDrop.style.display='block';
+  locDrop.innerHTML=matches.map((c,i)=>`<div class="loc-opt" data-i="${i}" style="padding:8px 10px;cursor:pointer;font-size:12px;color:rgba(220,180,180,.75);border-bottom:1px solid rgba(200,50,50,.08);transition:background .15s;display:flex;justify-content:space-between;align-items:center">
+    <span>${c[0]}</span>
+    <span style="font-size:9px;color:rgba(200,150,150,.3);font-family:monospace">${c[1].toFixed(2)}, ${c[2].toFixed(2)}&nbsp; UTC${c[3]>=0?'+':''}${c[3]}</span>
+  </div>`).join('');
+
+  locDrop.querySelectorAll('.loc-opt').forEach((el,i)=>{
+    el.onmouseenter=()=>{locSelIdx=i;highlightOpt()};
+    el.onmouseleave=()=>el.style.background='transparent';
+    el.onmousedown=(e)=>{e.preventDefault();selectCity(matches[i])};
+  });
+}
+
+function highlightOpt(){
+  locDrop.querySelectorAll('.loc-opt').forEach((o,i)=>o.style.background=i===locSelIdx?'rgba(139,0,0,.35)':'transparent');
+}
+
+function selectCity(c){
+  locInput.value=c[0];
+  document.getElementById('inp-lat').value=c[1];
+  document.getElementById('inp-lon').value=c[2];
+  document.getElementById('inp-tz').value=String(c[3]);
+  locDrop.style.display='none';
+  locSelIdx=-1;
+  render();
+}
+
+let locTimer;
+locInput.addEventListener('input',()=>{
+  clearTimeout(locTimer);
+  locTimer=setTimeout(()=>showDropdown(filterCities(locInput.value)),120);
+});
+locInput.addEventListener('focus',()=>{
+  if(locInput.value.length>=2)showDropdown(filterCities(locInput.value));
+});
+locInput.addEventListener('blur',()=>setTimeout(()=>locDrop.style.display='none',180));
+locInput.addEventListener('keydown',(e)=>{
+  const opts=locDrop.querySelectorAll('.loc-opt');
+  const matches=filterCities(locInput.value);
+  if(!opts.length)return;
+  if(e.key==='ArrowDown'){e.preventDefault();locSelIdx=Math.min(locSelIdx+1,opts.length-1);highlightOpt()}
+  else if(e.key==='ArrowUp'){e.preventDefault();locSelIdx=Math.max(locSelIdx-1,0);highlightOpt()}
+  else if(e.key==='Enter'&&locSelIdx>=0&&matches[locSelIdx]){e.preventDefault();selectCity(matches[locSelIdx])}
+  else if(e.key==='Escape'){locDrop.style.display='none';locSelIdx=-1}
+});
 </script>
 </body>
 </html>
