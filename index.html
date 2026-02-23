@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Queen of Hell — Jyoti Siddhanta</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=MedievalSharp&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{min-height:100vh;background:linear-gradient(180deg,#0a0004 0%,#150008 30%,#0d0005 60%,#05000a 100%);color:#ddd;font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
@@ -14,158 +14,177 @@ body{min-height:100vh;background:linear-gradient(180deg,#0a0004 0%,#150008 30%,#
 @keyframes flicker{0%,100%{opacity:1}50%{opacity:.85}}
 @keyframes slide-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-.bg-effects{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 800px 600px at 20% 20%,rgba(80,0,0,.15),transparent),radial-gradient(ellipse 600px 800px at 80% 80%,rgba(60,0,20,.1),transparent),radial-gradient(ellipse 400px 400px at 50% 50%,rgba(40,0,0,.08),transparent)}
-.bg-pattern{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.bg-effects{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 800px 600px at 20% 20%,rgba(80,0,0,.15),transparent),radial-gradient(ellipse 600px 800px at 80% 80%,rgba(60,0,20,.1),transparent)}
+.bg-pattern{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ff0000'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
 
-.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 16px}
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 16px}
 .cinzel{font-family:'Cinzel',serif}
 .cinzel-d{font-family:'Cinzel Decorative','Cinzel',serif}
-.mono{font-family:monospace}
+.mono{font-family:'Courier New',monospace}
 
-header{padding:30px 0 20px;text-align:center;border-bottom:1px solid rgba(200,50,50,.15);margin-bottom:24px}
-.subtitle{font-size:11px;letter-spacing:6px;color:rgba(200,80,80,.5);text-transform:uppercase}
-h1{font-size:clamp(28px,5vw,42px);font-weight:900;background:linear-gradient(180deg,#ff4444 0%,#8b0000 40%,#4a0000 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:4px;filter:drop-shadow(0 0 20px rgba(139,0,0,.5));animation:flicker 4s ease-in-out infinite}
-.tagline{font-size:10px;letter-spacing:8px;color:rgba(200,100,100,.35);text-transform:uppercase;margin-top:6px}
-.header-line{width:120px;height:1px;margin:16px auto 0;background:linear-gradient(90deg,transparent,rgba(200,50,50,.4),transparent)}
+header{padding:24px 0 16px;text-align:center;border-bottom:1px solid rgba(200,50,50,.15);margin-bottom:20px}
+h1{font-size:clamp(24px,4vw,38px);font-weight:900;background:linear-gradient(180deg,#ff4444 0%,#8b0000 40%,#4a0000 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:4px;filter:drop-shadow(0 0 20px rgba(139,0,0,.5));animation:flicker 4s ease-in-out infinite}
+.header-line{width:120px;height:1px;margin:12px auto 0;background:linear-gradient(90deg,transparent,rgba(200,50,50,.4),transparent)}
 
-.panel{background:rgba(10,2,5,.6);border:1px solid rgba(200,50,50,.15);border-radius:6px;padding:20px;margin-bottom:24px;backdrop-filter:blur(10px)}
-.section-label{font-size:9px;letter-spacing:4px;color:rgba(200,80,80,.5);text-transform:uppercase;margin-bottom:14px}
-.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
-label{font-size:9px;color:rgba(200,100,100,.5);font-family:'Cinzel',serif;letter-spacing:1px;display:block;margin-bottom:4px}
-input,select{background:rgba(20,5,10,.8)!important;border:1px solid rgba(200,50,50,.25)!important;color:#ddd!important;padding:8px 10px!important;border-radius:3px!important;font-family:Georgia,serif!important;font-size:13px!important;outline:none!important;transition:border-color .3s!important;width:100%}
-input:focus,select:focus{border-color:rgba(255,80,80,.5)!important;box-shadow:0 0 10px rgba(139,0,0,.3)!important}
+.panel{background:rgba(10,2,5,.6);border:1px solid rgba(200,50,50,.15);border-radius:6px;padding:16px;margin-bottom:16px;backdrop-filter:blur(10px)}
+.panel-title{font-size:12px;letter-spacing:3px;color:rgba(255,100,100,.6);text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(200,50,50,.12);display:flex;align-items:center;gap:8px}
+.panel-title::before{content:'⛧';font-size:10px;color:rgba(200,50,50,.4)}
+
+.form-row{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.form-group{flex:1;min-width:130px}
+.form-group label{font-size:9px;color:rgba(200,100,100,.5);font-family:'Cinzel',serif;letter-spacing:1px;display:block;margin-bottom:3px;text-transform:uppercase}
+input,select{background:rgba(20,5,10,.8)!important;border:1px solid rgba(200,50,50,.25)!important;color:#ddd!important;padding:7px 9px!important;border-radius:3px!important;font-family:Georgia,serif!important;font-size:12px!important;outline:none!important;width:100%}
+input:focus,select:focus{border-color:rgba(255,80,80,.5)!important;box-shadow:0 0 8px rgba(139,0,0,.3)!important}
 select option{background:#150008;color:#ddd}
 
-.btn{background:rgba(139,0,0,.3);border:1px solid rgba(200,50,50,.3);color:rgba(200,150,150,.7);padding:6px 14px;border-radius:3px;cursor:pointer;font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;transition:all .3s}
+.btn{background:rgba(139,0,0,.3);border:1px solid rgba(200,50,50,.3);color:rgba(200,150,150,.7);padding:5px 12px;border-radius:3px;cursor:pointer;font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;transition:all .3s;text-transform:uppercase}
 .btn:hover{background:rgba(139,0,0,.5)}
-.btn.active{background:rgba(139,0,0,.4)}
-.btn-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.btn.active{background:rgba(139,0,0,.45);color:#ff8888}
+.btn-row{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
 
-.tabs{display:flex;gap:2px;margin-bottom:2px;border-bottom:1px solid rgba(200,50,50,.15)}
-.tab{background:transparent;border:none;border-bottom:2px solid transparent;color:rgba(200,150,150,.4);padding:10px 20px;cursor:pointer;font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;transition:all .3s;text-transform:uppercase}
-.tab.active{background:linear-gradient(180deg,rgba(139,0,0,.3),rgba(80,0,0,.15));border-bottom:2px solid #8b0000;color:#ff6666}
+.tabs{display:flex;gap:2px;border-bottom:1px solid rgba(200,50,50,.15)}
+.tab{background:transparent;border:none;border-bottom:2px solid transparent;color:rgba(200,150,150,.4);padding:8px 16px;cursor:pointer;font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;transition:all .3s;text-transform:uppercase}
+.tab.active{background:linear-gradient(180deg,rgba(139,0,0,.3),rgba(80,0,0,.1));border-bottom:2px solid #8b0000;color:#ff6666}
 
-.content{background:rgba(10,2,5,.4);border:1px solid rgba(200,50,50,.1);border-top:none;border-radius:0 0 6px 6px;padding:20px;animation:slide-in .3s ease-out;min-height:400px}
+.content-area{background:rgba(10,2,5,.4);border:1px solid rgba(200,50,50,.1);border-top:none;border-radius:0 0 6px 6px;padding:16px;animation:slide-in .3s ease-out;min-height:300px}
 
-/* Chart grid */
+/* Chart */
 .chart-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;width:100%;aspect-ratio:1;background:rgba(139,0,0,.15);border:2px solid rgba(200,50,50,.4);border-radius:4px;box-shadow:0 0 30px rgba(139,0,0,.2),inset 0 0 30px rgba(0,0,0,.3)}
-.chart-cell{background:rgba(15,3,8,.85);padding:4px;display:flex;flex-direction:column;min-height:0;overflow:hidden;transition:all .3s}
+.chart-cell{background:rgba(15,3,8,.85);padding:4px;display:flex;flex-direction:column;overflow:hidden;transition:all .3s;position:relative}
 .chart-cell.asc{background:linear-gradient(135deg,rgba(139,0,0,.3),rgba(80,0,0,.2));border-left:2px solid rgba(255,80,80,.5)}
-.chart-cell.center{background:rgba(20,5,10,.9);display:flex;align-items:center;justify-content:center}
-.sign-label{font-size:9px;color:rgba(200,150,150,.5);font-family:'Cinzel',serif}
-.sign-label.asc{color:rgba(255,120,120,.9);font-weight:bold}
-.sign-sym{font-size:11px;color:rgba(200,150,150,.25)}
-.sign-sym.asc{color:rgba(255,100,100,.7)}
-.planet-tag{font-size:10px;font-weight:bold;font-family:monospace;line-height:1.2}
+.chart-cell.center{background:rgba(20,5,10,.9);align-items:center;justify-content:center}
 
-/* Info cards */
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-top:20px}
-.info-card{padding:8px 12px;background:rgba(20,5,10,.5);border-left:2px solid rgba(200,50,50,.25);border-radius:2px}
-.info-card-label{font-size:8px;color:rgba(200,100,100,.5);font-family:'Cinzel',serif;letter-spacing:2px;margin-bottom:2px;text-transform:uppercase}
-.info-card-value{font-size:13px;color:rgba(255,150,150,.8);font-family:'Cinzel',serif}
+/* Tables */
+.data-table{width:100%;border-collapse:collapse;font-size:11px}
+.data-table th{padding:6px 6px;text-align:left;color:rgba(200,100,100,.6);font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;font-weight:normal;border-bottom:1px solid rgba(200,50,50,.25);text-transform:uppercase}
+.data-table td{padding:5px 6px;border-bottom:1px solid rgba(100,20,20,.12)}
+.data-table tr:hover{background:rgba(139,0,0,.08)}
 
-/* Graha table */
-.graha-table{width:100%;border-collapse:collapse;font-size:11px;font-family:monospace;overflow-x:auto;display:block}
-.graha-table th{padding:6px 4px;text-align:left;color:rgba(200,100,100,.7);font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;font-weight:normal;border-bottom:1px solid rgba(200,50,50,.3)}
-.graha-table td{padding:4px;border-bottom:1px solid rgba(100,20,20,.15)}
+/* Panchanga table */
+.panch-table{width:100%;border-collapse:collapse}
+.panch-table td{padding:7px 8px;border-bottom:1px solid rgba(100,20,20,.12);font-size:12px}
+.panch-table .plabel{color:rgba(200,100,100,.6);font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;width:120px;white-space:nowrap}
+.panch-table .pvalue{color:rgba(220,180,180,.75);font-family:'Courier New',monospace;font-size:11px}
+.panch-table .pvalue .hl{color:#ff6666;font-weight:bold}
+.panch-table .pvalue .pct{color:rgba(200,150,150,.5);font-size:10px}
 
 /* Dasha */
-.dasha-item{display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(20,5,10,.5);border-left:3px solid rgba(100,30,30,.3);border-radius:2px;margin-bottom:4px;transition:all .3s}
-.dasha-item.active{background:linear-gradient(90deg,rgba(139,0,0,.4),rgba(80,0,0,.1));border-left:3px solid #ff4444}
+.dasha-container{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.dasha-container{grid-template-columns:1fr}}
+.dasha-item{display:flex;align-items:center;gap:6px;padding:5px 8px;background:rgba(20,5,10,.5);border-left:3px solid rgba(100,30,30,.25);border-radius:2px;margin-bottom:3px;transition:all .3s;font-size:11px}
+.dasha-item.active{background:linear-gradient(90deg,rgba(139,0,0,.35),rgba(80,0,0,.08));border-left-color:#ff4444}
+.dasha-item .dl{width:22px;font-weight:bold;font-family:'Courier New',monospace}
+.dasha-item .da{color:rgba(200,150,150,.35);font-family:'Courier New',monospace;font-size:10px;width:35px;text-align:right}
+.dasha-item .dd{color:rgba(200,150,150,.45);font-family:'Courier New',monospace;font-size:10px;flex:1}
 
-/* Panchanga */
-.panch-row{display:flex;justify-content:space-between;padding:5px 8px;background:rgba(20,5,10,.5);border-left:2px solid rgba(200,50,50,.2);border-radius:2px;margin-bottom:6px}
-.panch-label{font-size:10px;color:rgba(200,100,100,.6);font-family:'Cinzel',serif;letter-spacing:1px}
-.panch-value{font-size:11px;color:rgba(200,150,150,.7);font-family:monospace}
+/* Info cards */
+.info-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-top:16px}
+.info-card{padding:8px 10px;background:rgba(20,5,10,.5);border-left:2px solid rgba(200,50,50,.2);border-radius:2px}
+.info-card small{font-size:8px;color:rgba(200,100,100,.45);font-family:'Cinzel',serif;letter-spacing:1px;text-transform:uppercase}
+.info-card div{font-size:12px;color:rgba(255,150,150,.75);font-family:'Cinzel',serif;margin-top:2px}
 
-.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.detail-item{padding:5px 8px;background:rgba(20,5,10,.5);border-left:2px solid rgba(200,50,50,.15);border-radius:2px}
-.detail-item span:first-child{font-size:9px;color:rgba(200,100,100,.5);font-family:'Cinzel',serif;letter-spacing:1px}
-.detail-item span:last-child{font-size:11px;color:rgba(200,150,150,.6);font-family:monospace}
-
-footer{padding:30px 0;text-align:center;border-top:1px solid rgba(200,50,50,.08);margin-top:30px}
+footer{padding:20px 0;text-align:center;border-top:1px solid rgba(200,50,50,.08);margin-top:24px}
 </style>
 </head>
 <body>
 <div class="bg-effects"></div>
 <div class="bg-pattern"></div>
-
 <div class="wrap">
-  <header>
-    <div class="subtitle cinzel">⛧ Jyoti Siddhanta ⛧</div>
-    <h1 class="cinzel-d">QUEEN OF HELL</h1>
-    <div class="tagline cinzel">Realm of Munch Munch</div>
-    <div class="header-line"></div>
-  </header>
 
-  <!-- Birth Data -->
-  <div class="panel">
-    <div class="section-label cinzel">✧ Birth Data ✧</div>
-    <div class="form-grid">
-      <div><label>Name</label><input id="inp-name" type="text" value="New Delhi"></div>
-      <div><label>Date of Birth</label><input id="inp-date" type="date" value="1990-01-15"></div>
-      <div><label>Time of Birth</label><input id="inp-time" type="time" value="06:30" step="60"></div>
-      <div><label>Latitude</label><input id="inp-lat" type="number" step="0.0001" value="28.6139"></div>
-      <div><label>Longitude</label><input id="inp-lon" type="number" step="0.0001" value="77.2090"></div>
-      <div><label>Ayanāṃśa</label><select id="inp-ayan"><option value="lahiri">Lahiri</option><option value="raman">Raman</option><option value="citra">True Citrā</option></select></div>
+<header>
+  <div class="cinzel" style="font-size:10px;letter-spacing:5px;color:rgba(200,80,80,.45);text-transform:uppercase">⛧ Jyoti Siddhanta ⛧</div>
+  <h1 class="cinzel-d">QUEEN OF HELL</h1>
+  <div class="cinzel" style="font-size:9px;letter-spacing:6px;color:rgba(200,100,100,.3);text-transform:uppercase;margin-top:4px">Realm of Munch Munch</div>
+  <div class="header-line"></div>
+</header>
+
+<!-- Input Panel -->
+<div class="panel">
+  <div class="panel-title cinzel">Birth Data</div>
+  <div class="form-row">
+    <div class="form-group"><label>Name</label><input id="inp-name" type="text" placeholder="Enter Name of Chart"></div>
+    <div class="form-group"><label>Date (YYYY-MM-DD)</label><input id="inp-date" type="date" value="2026-02-23"></div>
+    <div class="form-group"><label>Time</label><input id="inp-time" type="time" value="14:38" step="1"></div>
+    <div class="form-group"><label>Location</label><input id="inp-loc" type="text" value="Fremont, California"></div>
+  </div>
+  <div class="form-row" style="margin-top:8px">
+    <div class="form-group" style="min-width:100px;flex:.6"><label>Latitude</label><input id="inp-lat" type="number" step="0.0001" value="37.5585"></div>
+    <div class="form-group" style="min-width:100px;flex:.6"><label>Longitude</label><input id="inp-lon" type="number" step="0.0001" value="-122.0105"></div>
+    <div class="form-group" style="min-width:100px;flex:.6"><label>Timezone</label>
+      <select id="inp-tz">
+        <option value="-8">PST (UTC-8)</option><option value="-7">MST (UTC-7)</option><option value="-6">CST (UTC-6)</option><option value="-5">EST (UTC-5)</option>
+        <option value="0">UTC</option><option value="1">CET (UTC+1)</option><option value="5.5">IST (UTC+5:30)</option><option value="8">CST (UTC+8)</option><option value="9">JST (UTC+9)</option>
+      </select>
     </div>
-    <div class="btn-row">
-      <button class="btn" id="btn-style">☽ South Indian</button>
-      <button class="btn" id="btn-d9">⛧ D1 Only</button>
+    <div class="form-group" style="min-width:100px;flex:.6"><label>Ayanāṃśa</label>
+      <select id="inp-ayan"><option value="lahiri">Lahiri</option><option value="raman">Raman</option><option value="citra">True Citrā</option></select>
     </div>
   </div>
-
-  <!-- Tabs -->
-  <div class="tabs">
-    <button class="tab active" data-tab="chart">Chart</button>
-    <button class="tab" data-tab="planets">Graha</button>
-    <button class="tab" data-tab="dasha">Daśā</button>
-    <button class="tab" data-tab="panchanga">Pañcāṅga</button>
+  <div class="btn-row">
+    <button class="btn active" id="btn-style">☽ South Indian</button>
+    <button class="btn" id="btn-d9">⛧ D1 Only</button>
+    <button class="btn" id="btn-now" style="margin-left:auto">⟳ Now</button>
   </div>
+</div>
 
-  <!-- Content -->
-  <div class="content" id="content"></div>
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab active" data-tab="main">Main</button>
+  <button class="tab" data-tab="dasha">Daśā</button>
+  <button class="tab" data-tab="graha">Graha</button>
+  <button class="tab" data-tab="panchanga">Pañcāṅga</button>
+</div>
+<div class="content-area" id="content"></div>
 
-  <footer>
-    <div class="cinzel" style="font-size:10px;color:rgba(200,80,80,.25);letter-spacing:3px">⛧ QUEEN OF HELL ⛧</div>
-    <div class="cinzel" style="font-size:8px;color:rgba(200,100,100,.2);letter-spacing:2px;margin-top:6px">Planetary positions are approximate • For precise calculations use Swiss Ephemeris</div>
-  </footer>
+<footer>
+  <div class="cinzel" style="font-size:9px;color:rgba(200,80,80,.2);letter-spacing:3px">⛧ QUEEN OF HELL ⛧</div>
+  <div class="cinzel" style="font-size:7px;color:rgba(200,100,100,.15);letter-spacing:1px;margin-top:4px">Approximate positions • Use Swiss Ephemeris for precise calculations</div>
+</footer>
 </div>
 
 <script>
-// ─── DATA ──────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════════════
 const SIGNS=["Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces"];
-const SIGN_ABBR=["Ar","Ta","Ge","Cn","Le","Vi","Li","Sc","Sg","Cp","Aq","Pi"];
-const SIGN_SYMBOLS=["♈","♉","♊","♋","♌","♍","♎","♏","♐","♑","♒","♓"];
-const NAKSHATRAS=["Ashwini","Bharani","Krittika","Rohini","Mrigashira","Ardra","Punarvasu","Pushya","Ashlesha","Magha","Purva Phalguni","Uttara Phalguni","Hasta","Chitra","Swati","Vishakha","Anuradha","Jyeshtha","Mula","Purva Ashadha","Uttara Ashadha","Shravana","Dhanishta","Shatabhisha","Purva Bhadra","Uttara Bhadra","Revati"];
+const SA=["Ar","Ta","Ge","Cn","Le","Vi","Li","Sc","Sg","Cp","Aq","Pi"];
+const SS=["♈","♉","♊","♋","♌","♍","♎","♏","♐","♑","♒","♓"];
+const SIGN_LORD=["Ma","Ve","Me","Mo","Su","Me","Ve","Ma","Jp","Sa","Sa","Jp"];
+const NAKS=["Ashwinī","Bharaṇī","Kṛttikā","Rohiṇī","Mṛgashīrā","Ārdrā","Punarvasu","Pushya","Āshleshā","Maghā","Pūrva Phālgunī","Uttara Phālgunī","Hasta","Chitrā","Swātī","Vishākhā","Anurādhā","Jyeshṭhā","Mūla","Pūrva Āshāḍhā","Uttara Āshāḍhā","Shravana","Dhaniṣṭhā","Shatabhishā","Pūrva Bhādra","Uttara Bhādra","Revatī"];
 const NAK_LORDS=["Ke","Ve","Su","Mo","Ma","Ra","Jp","Sa","Me","Ke","Ve","Su","Mo","Ma","Ra","Jp","Sa","Me","Ke","Ve","Su","Mo","Ma","Ra","Jp","Sa","Me"];
-const PLANETS=[
-  {id:"Su",name:"Sun",sanskrit:"Sūrya",symbol:"☉",color:"#ff4444"},
-  {id:"Mo",name:"Moon",sanskrit:"Chandra",symbol:"☽",color:"#c0c0ff"},
-  {id:"Ma",name:"Mars",sanskrit:"Maṅgala",symbol:"♂",color:"#ff2200"},
-  {id:"Me",name:"Mercury",sanskrit:"Budha",symbol:"☿",color:"#44cc44"},
-  {id:"Jp",name:"Jupiter",sanskrit:"Guru",symbol:"♃",color:"#ffaa00"},
-  {id:"Ve",name:"Venus",sanskrit:"Śukra",symbol:"♀",color:"#ff66ff"},
-  {id:"Sa",name:"Saturn",sanskrit:"Śani",symbol:"♄",color:"#6666cc"},
-  {id:"Ra",name:"Rahu",sanskrit:"Rāhu",symbol:"☊",color:"#888888"},
-  {id:"Ke",name:"Ketu",sanskrit:"Ketu",symbol:"☋",color:"#999966"},
+const PL=[
+  {id:"Su",name:"Sūrya",sym:"☉",c:"#ff4444"},
+  {id:"Mo",name:"Chandra",sym:"☽",c:"#c0c0ff"},
+  {id:"Ma",name:"Maṅgala",sym:"♂",c:"#ff2200"},
+  {id:"Me",name:"Budha",sym:"☿",c:"#44cc44"},
+  {id:"Jp",name:"Guru",sym:"♃",c:"#ffaa00"},
+  {id:"Ve",name:"Śukra",sym:"♀",c:"#ff66ff"},
+  {id:"Sa",name:"Śani",sym:"♄",c:"#6666cc"},
+  {id:"Ra",name:"Rāhu",sym:"☊",c:"#888"},
+  {id:"Ke",name:"Ketu",sym:"☋",c:"#999966"},
 ];
-const DASHA_YEARS={Ke:7,Ve:20,Su:6,Mo:10,Ma:7,Ra:18,Jp:16,Sa:19,Me:17};
-const DASHA_ORDER=["Ke","Ve","Su","Mo","Ma","Ra","Jp","Sa","Me"];
+const DY={Ke:7,Ve:20,Su:6,Mo:10,Ma:7,Ra:18,Jp:16,Sa:19,Me:17};
+const DO=["Ke","Ve","Su","Mo","Ma","Ra","Jp","Sa","Me"];
+const VARA=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const VARA_LORD=["Su","Mo","Ma","Me","Jp","Ve","Sa"];
+const HORA_SEQ_DAY={"Su":["Su","Ve","Me","Mo","Sa","Jp","Ma"],"Mo":["Mo","Sa","Jp","Ma","Su","Ve","Me"],"Ma":["Ma","Su","Ve","Me","Mo","Sa","Jp"],"Me":["Me","Mo","Sa","Jp","Ma","Su","Ve"],"Jp":["Jp","Ma","Su","Ve","Me","Mo","Sa"],"Ve":["Ve","Me","Mo","Sa","Jp","Ma","Su"],"Sa":["Sa","Jp","Ma","Su","Ve","Me","Mo"]};
 
-// ─── MATH ──────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════
+// MATH
+// ═══════════════════════════════════════════════════════════════════
 const norm=d=>((d%360)+360)%360;
-const signIdx=l=>Math.floor(l/30);
-const degInSign=l=>l%30;
-const nakIdx=l=>Math.floor(l/(360/27));
-const nakPada=l=>Math.floor((l%(360/27))/(360/108))+1;
-function fmtDeg(d){const deg=Math.floor(d),m=Math.floor((d-deg)*60),s=Math.floor(((d-deg)*60-m)*60);return`${deg}°${String(m).padStart(2,'0')}'${String(s).padStart(2,'0')}''`}
+const si=l=>Math.floor(l/30);
+const dis=l=>l%30;
+const ni=l=>Math.floor(l/(360/27));
+const np=l=>Math.floor((l%(360/27))/(360/108))+1;
+function fd(d){const deg=Math.floor(d),m=Math.floor((d-deg)*60),s=Math.floor(((d-deg)*60-m)*60);return deg+"°"+String(m).padStart(2,'0')+"'"+String(s).padStart(2,'0')+"''"}
+function fhm(date){return String(date.getHours()).padStart(2,'0')+":"+String(date.getMinutes()).padStart(2,'0')+":"+String(date.getSeconds()).padStart(2,'0')}
 
-function getAyanamsa(jd){return 23.85+0.0137*(jd-2415020)/365.25}
-function dateToJD(y,mo,d,h){let yr=y,mn=mo;if(mn<=2){yr--;mn+=12}const A=Math.floor(yr/100),B=2-A+Math.floor(A/4);return Math.floor(365.25*(yr+4716))+Math.floor(30.6001*(mn+1))+d+h/24+B-1524.5}
+function getAy(jd){return 23.85+0.0137*(jd-2415020)/365.25}
+function toJD(y,mo,d,h){let yr=y,mn=mo;if(mn<=2){yr--;mn+=12}const A=Math.floor(yr/100),B=2-A+Math.floor(A/4);return Math.floor(365.25*(yr+4716))+Math.floor(30.6001*(mn+1))+d+h/24+B-1524.5}
 
 function calcPlanets(jd){
-  const T=(jd-2451545)/36525,ay=getAyanamsa(jd);
+  const T=(jd-2451545)/36525,ay=getAy(jd);
   const sML=norm(280.46646+36000.76983*T+.0003032*T*T);
   const sA=norm(357.52911+35999.05029*T-.0001537*T*T);
   const sEq=(1.9146-.004817*T)*Math.sin(sA*Math.PI/180)+.019993*Math.sin(2*sA*Math.PI/180);
@@ -173,220 +192,386 @@ function calcPlanets(jd){
   const mML=norm(218.3165+481267.8813*T),mA=norm(134.9634+477198.8676*T);
   const mEv=1.2739*Math.sin((2*(mML-sML)-mA)*Math.PI/180);
   const mL=norm(mML+6.2888*Math.sin(mA*Math.PI/180)+mEv-ay);
-  const maL=norm(355.433+19140.2993*T-ay+2.5*Math.sin(19140.2993*T*.1*Math.PI/180));
-  const meL=norm(252.251+149472.6746*T-ay+3*Math.sin(149472.6746*T*.01*Math.PI/180));
-  const jL=norm(34.351+3034.9057*T-ay+5.5*Math.sin(3034.9057*T*.05*Math.PI/180));
-  const vL=norm(181.979+58517.8155*T-ay+.8*Math.sin(58517.8155*T*.01*Math.PI/180));
-  const saL=norm(50.077+1222.1138*T-ay+6.4*Math.sin(1222.1138*T*.05*Math.PI/180));
-  const rL=norm(125.044-1934.1366*T-ay),kL=norm(rL+180);
-  return PLANETS.map((p,i)=>({...p,longitude:[sL,mL,maL,meL,jL,vL,saL,rL,kL][i]}));
+  return PL.map((p,i)=>{
+    const longs=[sL,mL,
+      norm(355.433+19140.2993*T-ay+2.5*Math.sin(19140.2993*T*.1*Math.PI/180)),
+      norm(252.251+149472.6746*T-ay+3*Math.sin(149472.6746*T*.01*Math.PI/180)),
+      norm(34.351+3034.9057*T-ay+5.5*Math.sin(3034.9057*T*.05*Math.PI/180)),
+      norm(181.979+58517.8155*T-ay+.8*Math.sin(58517.8155*T*.01*Math.PI/180)),
+      norm(50.077+1222.1138*T-ay+6.4*Math.sin(1222.1138*T*.05*Math.PI/180)),
+      norm(125.044-1934.1366*T-ay),
+      norm(norm(125.044-1934.1366*T-ay)+180)
+    ];
+    return{...p,lon:longs[i]};
+  });
 }
+
 function calcAsc(jd,lat,lon){
-  const T=(jd-2451545)/36525,ay=getAyanamsa(jd);
+  const T=(jd-2451545)/36525,ay=getAy(jd);
   const GMST=280.46061837+360.98564736629*(jd-2451545)+.000387933*T*T;
   const LST=((GMST+lon)%360+360)%360;
   const obl=(23.4393-.013*T)*Math.PI/180,latR=lat*Math.PI/180,lstR=LST*Math.PI/180;
   const aR=Math.atan2(Math.cos(lstR),-(Math.sin(obl)*Math.tan(latR)+Math.cos(obl)*Math.sin(lstR)));
   return(aR*180/Math.PI+360-ay+360)%360;
 }
-function calcNavamsa(planets){
+
+// Sunrise/sunset (simplified)
+function calcSunrise(jd,lat,lon){
+  const T=(jd-2451545)/36525;
+  const M=norm(357.5291+35999.0503*T);
+  const C=(1.9146-.004817*T)*Math.sin(M*Math.PI/180);
+  const L=norm(280.46646+36000.76983*T+C);
+  const dec=Math.asin(Math.sin(23.44*Math.PI/180)*Math.sin(L*Math.PI/180))*180/Math.PI;
+  const latR=lat*Math.PI/180,decR=dec*Math.PI/180;
+  const cosH=(Math.sin(-0.833*Math.PI/180)-Math.sin(latR)*Math.sin(decR))/(Math.cos(latR)*Math.cos(decR));
+  if(Math.abs(cosH)>1)return{rise:"--:--:--",set:"--:--:--"};
+  const H=Math.acos(cosH)*180/Math.PI;
+  const noon=12-lon/15;// approximate solar noon in UT
+  const riseUT=noon-H/15;
+  const setUT=noon+H/15;
+  const tz=parseFloat(document.getElementById('inp-tz').value)||0;
+  const toHMS=(h)=>{h=((h+tz)%24+24)%24;const hh=Math.floor(h),mm=Math.floor((h-hh)*60),ss=Math.floor(((h-hh)*60-mm)*60);return String(hh).padStart(2,'0')+":"+String(mm).padStart(2,'0')+":"+String(ss).padStart(2,'0')};
+  return{rise:toHMS(riseUT),set:toHMS(setUT),riseH:((riseUT+tz)%24+24)%24,setH:((setUT+tz)%24+24)%24};
+}
+
+// Tithi with % remaining
+function calcTithi(sL,mL){
+  const angle=((mL-sL+360)%360);
+  const tithiNum=Math.floor(angle/12);
+  const pctLeft=((tithiNum+1)*12-angle)/12*100;
+  const names=["Pratipadā","Dvitīyā","Tṛtīyā","Chaturthī","Pañchamī","Ṣaṣṭhī","Saptamī","Aṣṭamī","Navamī","Daśamī","Ekādaśī","Dvādaśī","Trayodaśī","Chaturdaśī","Pūrṇimā/Amāvāsyā"];
+  const paksha=angle<180?"S":"K";
+  const num=(tithiNum%15)+1;
+  const lords=["Su","Mo","Ma","Me","Jp","Ve","Sa","Ra","Su","Mo","Ma","Me","Jp","Ve","Sa"];
+  return{name:paksha+num,fullName:(angle<180?"Śukla ":"Kṛṣṇa ")+names[tithiNum%15],lord:lords[tithiNum%15],pctLeft:pctLeft.toFixed(2)};
+}
+
+// Nakshatra with % remaining
+function calcNak(lon){
+  const span=360/27;
+  const idx=Math.floor(lon/span);
+  const pada=Math.floor((lon%span)/(span/4))+1;
+  const pctLeft=((idx+1)*span-lon)/span*100;
+  return{idx,name:NAKS[idx],pada,lord:NAK_LORDS[idx],pctLeft:pctLeft.toFixed(2),
+    padaFrac:`(${Math.floor(lon/span*4-idx*4+1)}/4)`,
+    nakFrac:`(${idx+1}/27)`};
+}
+
+// Yoga
+function calcYoga(sL,mL){
+  const angle=(sL+mL)%360;
+  const idx=Math.floor(angle/(360/27));
+  const pctLeft=((idx+1)*(360/27)-angle)/(360/27)*100;
+  const names=["Viṣkambha","Prīti","Āyuṣmān","Saubhāgya","Śobhana","Atigaṇḍa","Sukarma","Dhṛti","Śūla","Gaṇḍa","Vṛddhi","Dhruva","Vyāghāta","Harṣaṇa","Vajra","Siddhi","Vyatīpāta","Varīyān","Parigha","Śiva","Siddha","Sādhya","Śubha","Śukla","Brahma","Indra","Vaidhṛti"];
+  const lords=["Ra","Mo","Ma","Ra","Jp","Sa","Me","Ra","Su","Mo","Ma","Ra","Jp","Sa","Me","Ra","Su","Mo","Ma","Ra","Jp","Sa","Me","Ra","Jp","Sa","Me"];
+  return{name:names[idx],lord:lords[idx],pctLeft:pctLeft.toFixed(2)};
+}
+
+// Karana
+function calcKarana(sL,mL){
+  const angle=((mL-sL+360)%360);
+  const idx=Math.floor(angle/6);
+  const pctLeft=((idx+1)*6-angle)/6*100;
+  const names=["Bava","Bālava","Kaulava","Taitila","Garaja","Vaṇija","Viṣṭi","Śakunī","Catuṣpāda","Nāga","Kiṃstughna"];
+  const lords=["Su","Mo","Ma","Me","Jp","Ve","Sa","Ra","Su","Mo","Ma"];
+  const ki=idx%11;
+  return{name:names[ki],lord:lords[ki],pctLeft:pctLeft.toFixed(2)};
+}
+
+// Hora
+function calcHora(birthH,sunriseH,sunsetH,dayLord){
+  const dayLen=((sunsetH-sunriseH)+24)%24;
+  const nightLen=24-dayLen;
+  const horaLenDay=dayLen/12;
+  const horaLenNight=nightLen/12;
+  const seq=HORA_SEQ_DAY[dayLord]||HORA_SEQ_DAY["Su"];
+  let elapsed,horaIdx,pctLeft;
+  if(birthH>=sunriseH&&birthH<sunsetH){
+    elapsed=birthH-sunriseH;
+    horaIdx=Math.floor(elapsed/horaLenDay)%7;
+    pctLeft=((Math.floor(elapsed/horaLenDay)+1)*horaLenDay-elapsed)/horaLenDay*100;
+  }else{
+    let nightStart=sunsetH;
+    let h=birthH<sunriseH?birthH+24:birthH;
+    if(nightStart>24)nightStart-=24;
+    elapsed=(h>=nightStart?h-nightStart:h+24-nightStart);
+    horaIdx=(Math.floor(elapsed/horaLenNight)+12)%7;
+    pctLeft=((Math.floor(elapsed/horaLenNight)+1)*horaLenNight-elapsed)/horaLenNight*100;
+  }
+  const fullSeq=["Su","Ve","Me","Mo","Sa","Jp","Ma","Su","Ve","Me","Mo","Sa","Jp","Ma"];
+  const startIdx=fullSeq.indexOf(dayLord);
+  const horaLord=fullSeq[(startIdx+Math.floor((birthH>=sunriseH&&birthH<sunsetH)?((birthH-sunriseH)/horaLenDay):((birthH<sunriseH?(birthH+24-sunsetH):(birthH-sunsetH))/horaLenNight)+12))%14]||dayLord;
+  return{lord:horaLord,pctLeft:Math.max(0,Math.min(100,pctLeft)).toFixed(2)};
+}
+
+// Vimshottari Dasha
+function calcDasha(moonL,jd){
+  const nk=ni(moonL),lord=NAK_LORDS[nk],sIdx=DO.indexOf(lord);
+  const elapsed=(moonL-nk*(360/27))/(360/27);
+  const rem=DY[lord]*(1-elapsed);
+  const ds=[];let cur=new Date((jd-2440587.5)*864e5);
+  for(let i=0;i<9;i++){
+    const idx=(sIdx+i)%9,l=DO[idx],y=i===0?rem:DY[l];
+    const st=new Date(cur);cur=new Date(cur.getTime()+y*365.25*864e5);
+    ds.push({lord:l,years:Math.round(y*10)/10,start:st,end:new Date(cur)});
+  }return ds;
+}
+
+// Narayana Dasha (Rashi-based, simplified)
+function calcNarayanaDasha(ascLon,planets){
+  const ascS=si(ascLon);
+  // Narayana dasha starts from the sign of the ascendant
+  // Duration = planets in sign + extra rules (simplified: count of planets in sign, min 1 year per empty, varies)
+  const planetsInSign={};
+  for(let i=0;i<12;i++)planetsInSign[i]=0;
+  planets.forEach(p=>{planetsInSign[si(p.lon)]++});
+  
+  const dashas=[];
+  let cur=new Date();// from birth, but we use current chart date
+  const dateStr=document.getElementById('inp-date').value;
+  const timeStr=document.getElementById('inp-time').value;
+  const[y,m,d]=dateStr.split('-').map(Number);
+  const[h,mn]=timeStr.split(':').map(Number);
+  cur=new Date(y,m-1,d,h,mn);
+  
+  // Odd signs go forward, even signs go backward from ascendant
+  const isOdd=(ascS%2===0);// Aries=0=odd(fire), Taurus=1=even
+  
+  for(let i=0;i<12;i++){
+    let signIdx;
+    if(isOdd){signIdx=(ascS+i)%12}
+    else{signIdx=((ascS-i)%12+12)%12}
+    
+    // Years = number of planets in sign. If 0, use sign lord's contribution (simplified to 1-9 based on sign)
+    let years=planetsInSign[signIdx];
+    if(years===0){
+      // Use default years based on sign position (simplified Narayana rule)
+      const defaults=[7,9,11,3,5,7,9,11,3,5,7,9];// simplified
+      years=defaults[signIdx%12];
+    }else{
+      years=years+1;// add 1 for each planet
+      // Adjust: if sign lord is in sign, add extra
+    }
+    // Simplified: use count * 3 years as approximation, min 3
+    years=Math.max(3,planetsInSign[signIdx]*3||((signIdx%2===0)?9:7));
+    
+    const st=new Date(cur);
+    cur=new Date(cur.getTime()+years*365.25*864e5);
+    dashas.push({sign:signIdx,years,start:st,end:new Date(cur)});
+  }
+  return dashas;
+}
+
+// Navamsa
+function calcNav(planets){
   return planets.map(p=>{
-    const s=signIdx(p.longitude),d=degInSign(p.longitude),pada=Math.floor(d/3.333333);
+    const s=si(p.lon),d=dis(p.lon),pada=Math.floor(d/3.333333);
     let ns;
     if([0,4,8].includes(s))ns=(s+pada)%12;
     else if([1,5,9].includes(s))ns=(s+9+pada)%12;
     else if([2,6,10].includes(s))ns=(s+6+pada)%12;
     else ns=(s+3+pada)%12;
-    return{...p,longitude:ns*30+(d%3.333)*9};
+    return{...p,lon:ns*30+(d%3.333)*9};
   });
 }
-function calcDasha(moonL,jd){
-  const ni=nakIdx(moonL),lord=NAK_LORDS[ni],si=DASHA_ORDER.indexOf(lord);
-  const elapsed=(moonL-ni*(360/27))/(360/27);
-  const rem=DASHA_YEARS[lord]*(1-elapsed);
-  const ds=[];let cur=new Date((jd-2440587.5)*864e5);
-  for(let i=0;i<9;i++){
-    const idx=(si+i)%9,l=DASHA_ORDER[idx],y=i===0?rem:DASHA_YEARS[l];
-    const st=new Date(cur);cur=new Date(cur.getTime()+y*365.25*864e5);
-    ds.push({lord:l,years:Math.round(y*10)/10,start:st,end:new Date(cur)});
-  }return ds;
-}
-function calcPanchanga(sL,mL){
-  const ta=((mL-sL+360)%360),tn=Math.floor(ta/12)+1;
-  const tNames=["Pratipada","Dvitiya","Tritiya","Chaturthi","Panchami","Shashthi","Saptami","Ashtami","Navami","Dashami","Ekadashi","Dvadashi","Trayodashi","Chaturdashi","Purnima/Amavasya"];
-  const paksha=ta<180?"Shukla":"Krishna";
-  const ya=(sL+mL)%360,yn=Math.floor(ya/(360/27))+1;
-  const yNames=["Vishkambha","Priti","Ayushman","Saubhagya","Shobhana","Atiganda","Sukarma","Dhriti","Shula","Ganda","Vriddhi","Dhruva","Vyaghata","Harshana","Vajra","Siddhi","Vyatipata","Variyan","Parigha","Shiva","Siddha","Sadhya","Shubha","Shukla","Brahma","Indra","Vaidhriti"];
-  const kn=Math.floor(ta/6)%11;
-  const kNames=["Bava","Balava","Kaulava","Taitila","Garaja","Vanija","Vishti","Shakuni","Chatushpada","Naga","Kimstughna"];
-  return{tithi:`${paksha} ${tNames[(tn-1)%15]}`,yoga:yNames[(yn-1)%27],karana:kNames[kn]};
-}
 
-// ─── STATE ─────────────────────────────────────────────────────────
-let state={tab:"chart",style:"south",showD9:false};
+// ═══════════════════════════════════════════════════════════════════
+// STATE & COMPUTE
+// ═══════════════════════════════════════════════════════════════════
+let state={tab:"main",style:"south",showD9:false};
 
-function getInputs(){
+function getInp(){
+  const tz=parseFloat(document.getElementById('inp-tz').value)||0;
   return{
-    name:document.getElementById("inp-name").value,
-    date:document.getElementById("inp-date").value,
-    time:document.getElementById("inp-time").value,
-    lat:parseFloat(document.getElementById("inp-lat").value)||0,
-    lon:parseFloat(document.getElementById("inp-lon").value)||0,
+    date:document.getElementById('inp-date').value,
+    time:document.getElementById('inp-time').value,
+    lat:parseFloat(document.getElementById('inp-lat').value)||0,
+    lon:parseFloat(document.getElementById('inp-lon').value)||0,
+    tz,loc:document.getElementById('inp-loc').value,
   };
 }
 
 function compute(){
-  const inp=getInputs();
-  const[y,m,d]=inp.date.split("-").map(Number);
-  const[h,mn]=inp.time.split(":").map(Number);
-  const hour=h+mn/60;
-  const jd=dateToJD(y,m,d,hour-(inp.lon/15));
+  const inp=getInp();
+  const[y,m,d]=inp.date.split('-').map(Number);
+  const[h,mn]=inp.time.split(':').map(Number);
+  const localH=h+mn/60;
+  const utH=localH-inp.tz;
+  const jd=toJD(y,m,d,utH);
   const planets=calcPlanets(jd);
   const asc=calcAsc(jd,inp.lat,inp.lon);
-  const ascS=signIdx(asc);
-  const nav=calcNavamsa(planets);
-  const navAsc=signIdx(calcNavamsa([{longitude:asc}])[0].longitude);
-  const dashas=calcDasha(planets[1].longitude,jd);
-  const panch=calcPanchanga(planets[0].longitude,planets[1].longitude);
-  return{planets,asc,ascS,nav,navAsc,dashas,panch,jd,inp};
+  const ascS=si(asc);
+  const nav=calcNav(planets);
+  const navAsc=si(calcNav([{lon:asc}])[0].lon);
+  const dashas=calcDasha(planets[1].lon,jd);
+  const narayana=calcNarayanaDasha(asc,planets);
+  const sun=calcSunrise(jd,inp.lat,inp.lon);
+  const tithi=calcTithi(planets[0].lon,planets[1].lon);
+  const moonNak=calcNak(planets[1].lon);
+  const yoga=calcYoga(planets[0].lon,planets[1].lon);
+  const karana=calcKarana(planets[0].lon,planets[1].lon);
+  const dayIdx=new Date(y,m-1,d).getDay();
+  const hora=calcHora(localH,sun.riseH||6,sun.setH||18,VARA_LORD[dayIdx]);
+  const ay=getAy(jd);
+  return{planets,asc,ascS,nav,navAsc,dashas,narayana,sun,tithi,moonNak,yoga,karana,hora,jd,ay,inp,dayIdx,localH,birthISO:`${inp.date}T${inp.time}`};
 }
 
-// ─── RENDERERS ─────────────────────────────────────────────────────
-function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+// ═══════════════════════════════════════════════════════════════════
+// RENDERERS
+// ═══════════════════════════════════════════════════════════════════
 
-function renderSouthChart(planets,ascS,title){
+function renderChart(planets,ascS,title){
   const grid=[[11,0,1,2],[10,-1,-1,3],[9,-1,-1,4],[8,7,6,5]];
-  const bySign={};planets.forEach(p=>{const s=signIdx(p.longitude);(bySign[s]=bySign[s]||[]).push(p)});
-  let html='<div class="chart-grid">';
-  grid.flat().forEach((si,i)=>{
-    if(si===-1){
-      html+=`<div class="chart-cell center">${i===5?`<span class="cinzel" style="font-size:11px;color:rgba(200,80,80,.6);letter-spacing:2px">${title||''}</span>`:''}</div>`;
-      return;
-    }
-    const isAsc=si===ascS;const ps=bySign[si]||[];
-    html+=`<div class="chart-cell${isAsc?' asc':''}">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px">
-        <span class="sign-label${isAsc?' asc':" "}">${SIGN_ABBR[si]}</span>
-        <span class="sign-sym${isAsc?' asc':''}">${SIGN_SYMBOLS[si]}</span>
+  const bySign={};planets.forEach(p=>{const s=si(p.lon);(bySign[s]=bySign[s]||[]).push(p)});
+  let h='<div class="chart-grid">';
+  grid.flat().forEach((s,i)=>{
+    if(s===-1){h+=`<div class="chart-cell center">${i===5?'<span class="cinzel" style="font-size:10px;color:rgba(200,80,80,.5);letter-spacing:2px">'+title+'</span>':''}</div>`;return}
+    const isA=s===ascS,ps=bySign[s]||[];
+    h+=`<div class="chart-cell${isA?' asc':''}">
+      <div style="display:flex;justify-content:space-between;margin-bottom:1px">
+        <span style="font-size:8px;color:${isA?'rgba(255,120,120,.9)':'rgba(200,150,150,.45)'};font-family:'Cinzel',serif;${isA?'font-weight:bold':''}">${SA[s]}</span>
+        <span style="font-size:10px;color:${isA?'rgba(255,100,100,.6)':'rgba(200,150,150,.2)'}">${SS[s]}</span>
       </div>
-      ${isAsc?'<span style="position:absolute;top:2px;right:2px;font-size:7px;color:rgba(255,80,80,.7)" class="cinzel">As</span>':''}
-      <div style="display:flex;flex-wrap:wrap;gap:2px;flex:1">
-        ${ps.map(p=>`<span class="planet-tag" style="color:${p.color};text-shadow:0 0 6px ${p.color}50">${p.id} ${fmtDeg(degInSign(p.longitude)).split("'")[0]}'</span>`).join('')}
-      </div>
-    </div>`;
+      ${isA?'<span style="position:absolute;top:1px;right:14px;font-size:6px;color:rgba(255,80,80,.6);font-family:Cinzel,serif">As</span>':''}
+      <div style="display:flex;flex-wrap:wrap;gap:1px">
+        ${ps.map(p=>`<span style="font-size:9px;color:${p.c};font-weight:bold;font-family:monospace;text-shadow:0 0 5px ${p.c}40;line-height:1.3">${p.id} ${fd(dis(p.lon)).split("'")[0]}'</span>`).join('')}
+      </div></div>`;
   });
-  return html+'</div>';
+  return h+'</div>';
 }
 
-function renderChartTab(data){
-  const c=data;
-  let chartHtml=renderSouthChart(state.style==='south'?c.planets:c.planets,c.ascS,'D1');
-  // For north style we reuse south for simplicity in the HTML version
-  let html=`<div style="display:grid;grid-template-columns:${state.showD9?'1fr 1fr':'1fr'};gap:20px;max-width:${state.showD9?'100%':'500px'};margin:0 auto">`;
-  html+=`<div><div class="section-label cinzel" style="text-align:center;margin-bottom:8px">✧ Rāśi Chart (D1) ✧</div>${renderSouthChart(c.planets,c.ascS,'D1')}</div>`;
-  if(state.showD9){
-    html+=`<div><div class="section-label cinzel" style="text-align:center;margin-bottom:8px">✧ Navāṃśa Chart (D9) ✧</div>${renderSouthChart(c.nav,c.navAsc,'D9')}</div>`;
-  }
-  html+='</div>';
-  // Quick info
-  html+='<div class="info-grid">';
-  const infos=[
-    ["Lagna",`${SIGNS[c.ascS]} ${fmtDeg(degInSign(c.asc))}`],
-    ["Moon Sign",SIGNS[signIdx(c.planets[1].longitude)]],
-    ["Sun Sign",SIGNS[signIdx(c.planets[0].longitude)]],
-    ["Nakṣatra",`${NAKSHATRAS[nakIdx(c.planets[1].longitude)]} (Pada ${nakPada(c.planets[1].longitude)})`],
-  ];
-  infos.forEach(([l,v])=>{html+=`<div class="info-card"><div class="info-card-label">${l}</div><div class="info-card-value">${v}</div></div>`});
-  html+='</div>';
-  return html;
+function renderMain(c){
+  let h='<div style="display:grid;grid-template-columns:'+(state.showD9?'1fr 1fr':'1fr')+';gap:16px;max-width:'+(state.showD9?'100%':'480px')+';margin:0 auto">';
+  h+='<div><div class="cinzel" style="font-size:9px;letter-spacing:2px;color:rgba(200,80,80,.45);text-align:center;margin-bottom:6px;text-transform:uppercase">✧ Rāśi (D1) ✧</div>'+renderChart(c.planets,c.ascS,'D1')+'</div>';
+  if(state.showD9)h+='<div><div class="cinzel" style="font-size:9px;letter-spacing:2px;color:rgba(200,80,80,.45);text-align:center;margin-bottom:6px;text-transform:uppercase">✧ Navāṃśa (D9) ✧</div>'+renderChart(c.nav,c.navAsc,'D9')+'</div>';
+  h+='</div>';
+  // Info row
+  h+='<div class="info-row">';
+  [["Lagna",SIGNS[c.ascS]+" "+fd(dis(c.asc))],["Moon Sign",SIGNS[si(c.planets[1].lon)]],["Sun Sign",SIGNS[si(c.planets[0].lon)]],["Nakṣatra",c.moonNak.name+" (Pada "+c.moonNak.pada+")"]].forEach(([l,v])=>{
+    h+=`<div class="info-card"><small>${l}</small><div>${v}</div></div>`;
+  });
+  h+='</div>';
+  return h;
 }
 
-function renderPlanetsTab(data){
-  const c=data;
-  let html=`<div class="section-label cinzel">✧ Graha Positions ✧</div><div style="overflow-x:auto"><table class="graha-table"><thead><tr>`;
-  ["","Body","Sanskrit","Rāśi","Longitude","Nakṣatra","Pada","Lord"].forEach(h=>{html+=`<th>${h}</th>`});
-  html+='</tr></thead><tbody>';
-  // Ascendant row
-  const as=c.ascS;
-  html+=`<tr><td style="color:#ff8888">↑</td><td style="color:#ff8888">As</td><td style="color:rgba(200,150,150,.5)">Lagna</td><td style="color:rgba(255,150,150,.8)">${SIGNS[as]}</td><td style="color:rgba(200,150,150,.6)">${SIGN_ABBR[as]} ${fmtDeg(degInSign(c.asc))}</td><td style="color:rgba(200,150,150,.5)">${NAKSHATRAS[nakIdx(c.asc)]}</td><td style="color:rgba(200,150,150,.4)">${nakPada(c.asc)}</td><td style="color:rgba(200,150,150,.4)">${NAK_LORDS[nakIdx(c.asc)]}</td></tr>`;
+function renderPanchanga(c){
+  const tzStr=c.inp.tz>=0?'+'+c.inp.tz:c.inp.tz;
+  const tzLabel=c.inp.tz===-8?'PST':c.inp.tz===-5?'EST':c.inp.tz===5.5?'IST':'UTC'+tzStr;
+  let h=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">`;
+  // Left: Panchanga
+  h+=`<div class="panel" style="margin:0"><div class="panel-title cinzel">Pañcāṅga</div><table class="panch-table">`;
+  h+=`<tr><td class="plabel">Birth Time</td><td class="pvalue">${c.birthISO}</td></tr>`;
+  h+=`<tr><td class="plabel">Sunrise / Sunset</td><td class="pvalue">${c.sun.rise} / ${c.sun.set}</td></tr>`;
+  h+=`<tr><td class="plabel">Vāra</td><td class="pvalue">${VARA[c.dayIdx]} <span class="hl">${VARA_LORD[c.dayIdx]}</span></td></tr>`;
+  h+=`<tr><td class="plabel">Tithi</td><td class="pvalue"><span class="hl">${c.tithi.name} ${c.tithi.lord}</span> <span class="pct">${c.tithi.pctLeft}% left</span></td></tr>`;
+  h+=`<tr><td class="plabel">Nakṣatra</td><td class="pvalue"><span class="hl">${c.moonNak.name}(${c.moonNak.pada}) ${c.moonNak.lord}</span> <span class="pct">${c.moonNak.pctLeft}% left</span></td></tr>`;
+  h+=`<tr><td class="plabel">Karaṇa</td><td class="pvalue"><span class="hl">${c.karana.name} ${c.karana.lord}</span> <span class="pct">${c.karana.pctLeft}% left</span></td></tr>`;
+  h+=`<tr><td class="plabel">Yoga</td><td class="pvalue"><span class="hl">${c.yoga.name} ${c.yoga.lord}</span> <span class="pct">${c.yoga.pctLeft}% left</span></td></tr>`;
+  h+=`<tr><td class="plabel">Horā</td><td class="pvalue"><span class="hl">${c.hora.lord}</span> <span class="pct">${c.hora.pctLeft}% left</span></td></tr>`;
+  h+=`<tr><td class="plabel">Ayanāṃśa</td><td class="pvalue">${fd(c.ay)}</td></tr>`;
+  h+=`<tr><td class="plabel">Coordinates</td><td class="pvalue">[${c.inp.lat}, ${c.inp.lon}]</td></tr>`;
+  h+=`<tr><td class="plabel">Timezone</td><td class="pvalue">${tzLabel} [${tzStr}:00]</td></tr>`;
+  h+=`</table></div>`;
+  // Right: Graha summary
+  h+=`<div class="panel" style="margin:0"><div class="panel-title cinzel">Graha Summary</div><table class="data-table"><thead><tr><th></th><th>Graha</th><th>Rāśi</th><th>Deg</th><th>Nak</th><th>Pd</th></tr></thead><tbody>`;
+  h+=`<tr><td style="color:#ff8888">↑</td><td style="color:#ff8888">As</td><td style="color:rgba(255,150,150,.7)">${SA[c.ascS]}</td><td class="mono" style="color:rgba(200,150,150,.6)">${fd(dis(c.asc))}</td><td style="color:rgba(200,150,150,.5)">${NAKS[ni(c.asc)].substring(0,8)}</td><td>${np(c.asc)}</td></tr>`;
   c.planets.forEach(p=>{
-    const si=signIdx(p.longitude),ni=nakIdx(p.longitude);
-    html+=`<tr><td style="color:${p.color};font-size:13px">${p.symbol}</td><td style="color:${p.color};font-weight:bold">${p.id}</td><td style="color:rgba(200,150,150,.5)">${p.sanskrit}</td><td style="color:rgba(255,150,150,.7)">${SIGNS[si]}</td><td style="color:rgba(200,150,150,.6)">${SIGN_ABBR[si]} ${fmtDeg(degInSign(p.longitude))}</td><td style="color:rgba(200,150,150,.5)">${NAKSHATRAS[ni]}</td><td style="color:rgba(200,150,150,.4)">${nakPada(p.longitude)}</td><td style="color:rgba(200,150,150,.4)">${NAK_LORDS[ni]}</td></tr>`;
+    h+=`<tr><td style="color:${p.c};font-size:13px">${p.sym}</td><td style="color:${p.c};font-weight:bold">${p.id}</td><td style="color:rgba(255,150,150,.65)">${SA[si(p.lon)]}</td><td class="mono" style="color:rgba(200,150,150,.55)">${fd(dis(p.lon))}</td><td style="color:rgba(200,150,150,.45)">${NAKS[ni(p.lon)].substring(0,8)}</td><td style="color:rgba(200,150,150,.4)">${np(p.lon)}</td></tr>`;
   });
-  html+='</tbody></table></div>';
-  return html;
+  h+=`</tbody></table></div></div>`;
+  return h;
 }
 
-function renderDashaTab(data){
-  const c=data,now=new Date();
-  const ni=nakIdx(c.planets[1].longitude);
-  let html=`<div class="section-label cinzel">✧ Viṁśottarī Mahā Daśā ✧</div>`;
-  html+=`<div class="mono" style="font-size:10px;color:rgba(200,150,150,.4);margin-bottom:14px">Starting Nakṣatra: ${NAKSHATRAS[ni]} (${NAK_LORDS[ni]})</div>`;
+function renderGraha(c){
+  let h=`<div class="panel" style="margin:0"><div class="panel-title cinzel">Graha Positions</div><div style="overflow-x:auto"><table class="data-table"><thead><tr>`;
+  ["","Body","Sanskrit","Rāśi","Longitude","Nakṣatra","Pada","Nak Lord"].forEach(x=>{h+=`<th>${x}</th>`});
+  h+=`</tr></thead><tbody>`;
+  h+=`<tr><td style="color:#ff8888">↑</td><td style="color:#ff8888;font-weight:bold">As</td><td style="color:rgba(200,150,150,.5)">Lagna</td><td style="color:rgba(255,150,150,.7)">${SIGNS[c.ascS]}</td><td class="mono" style="color:rgba(200,150,150,.6)">${SA[c.ascS]} ${fd(dis(c.asc))}</td><td style="color:rgba(200,150,150,.5)">${NAKS[ni(c.asc)]}</td><td>${np(c.asc)}</td><td>${NAK_LORDS[ni(c.asc)]}</td></tr>`;
+  c.planets.forEach(p=>{
+    const s=si(p.lon),n=ni(p.lon);
+    h+=`<tr><td style="color:${p.c};font-size:14px">${p.sym}</td><td style="color:${p.c};font-weight:bold">${p.id}</td><td style="color:rgba(200,150,150,.5)">${p.name}</td><td style="color:rgba(255,150,150,.65)">${SIGNS[s]}</td><td class="mono" style="color:rgba(200,150,150,.55)">${SA[s]} ${fd(dis(p.lon))}</td><td style="color:rgba(200,150,150,.5)">${NAKS[n]}</td><td style="color:rgba(200,150,150,.4)">${np(p.lon)}</td><td style="color:rgba(200,150,150,.4)">${NAK_LORDS[n]}</td></tr>`;
+  });
+  h+=`</tbody></table></div></div>`;
+  return h;
+}
+
+function fmtDate(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+
+function renderDasha(c){
+  const now=new Date();
+  let h='<div class="dasha-container">';
+  // Vimshottari
+  h+=`<div class="panel" style="margin:0"><div class="panel-title cinzel">Viṁśottarī Daśā</div>`;
+  h+=`<div class="mono" style="font-size:9px;color:rgba(200,150,150,.4);margin-bottom:10px">Starting Tārā ${c.moonNak.lord} (${c.moonNak.name})</div>`;
   c.dashas.forEach(d=>{
     const active=now>=d.start&&now<d.end;
-    const planet=PLANETS.find(p=>p.id===d.lord);
-    html+=`<div class="dasha-item${active?' active':''}">
-      <span style="font-size:14px;color:${planet?.color||'#fff'};${active?`text-shadow:0 0 10px ${planet?.color}80`:''};width:20px">${planet?.symbol||''}</span>
-      <span class="cinzel" style="font-size:12px;color:${active?'#ff8888':'rgba(200,150,150,.6)'};width:30px;${active?'font-weight:bold':''}">${d.lord}</span>
-      <span class="mono" style="font-size:10px;color:rgba(200,150,150,.4);flex:1">${d.start.getFullYear()} — ${d.end.getFullYear()}</span>
-      <span class="mono" style="font-size:10px;color:rgba(200,150,150,.35)">${d.years}y</span>
+    const pl=PL.find(p=>p.id===d.lord);
+    h+=`<div class="dasha-item${active?' active':''}">
+      <span style="font-size:13px;color:${pl?.c||'#fff'};${active?'text-shadow:0 0 8px '+pl?.c+'80':''};">${pl?.sym||''}</span>
+      <span class="dl" style="color:${active?'#ff8888':'rgba(200,150,150,.55)'}">${d.lord}</span>
+      <span class="da">${d.years}y</span>
+      <span class="dd">${fmtDate(d.start)} to ${fmtDate(d.end)}</span>
     </div>`;
   });
-  return html;
+  h+=`</div>`;
+  // Narayana
+  h+=`<div class="panel" style="margin:0"><div class="panel-title cinzel">Nārāyaṇa Daśā</div>`;
+  h+=`<div class="mono" style="font-size:9px;color:rgba(200,150,150,.4);margin-bottom:10px">Varga D1</div>`;
+  c.narayana.forEach(d=>{
+    const active=now>=d.start&&now<d.end;
+    h+=`<div class="dasha-item${active?' active':''}">
+      <span style="font-size:11px;color:${active?'#ff8888':'rgba(200,150,150,.55)'};font-weight:bold;width:22px">${SA[d.sign]}</span>
+      <span class="da">${d.years.toFixed(1)}</span>
+      <span class="dd">${fmtDate(d.start)} to ${fmtDate(d.end)}</span>
+    </div>`;
+  });
+  h+=`</div></div>`;
+  return h;
 }
 
-function renderPanchangaTab(data){
-  const c=data,vara=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][new Date().getDay()];
-  const varaL=["Su","Mo","Ma","Me","Jp","Ve","Sa"][new Date().getDay()];
-  let html=`<div class="section-label cinzel">✧ Pañcāṅga ✧</div>`;
-  [["Vāra",`${vara} (${varaL})`],["Tithi",c.panch.tithi],["Nakṣatra",NAKSHATRAS[nakIdx(c.planets[1].longitude)]],["Yoga",c.panch.yoga],["Karaṇa",c.panch.karana]].forEach(([l,v])=>{
-    html+=`<div class="panch-row"><span class="panch-label">${l}</span><span class="panch-value">${v}</span></div>`;
-  });
-  html+=`<div class="section-label cinzel" style="margin-top:20px;margin-bottom:10px">✧ Chart Details ✧</div><div class="detail-grid">`;
-  [["Ayanāṃśa",fmtDeg(getAyanamsa(c.jd))],["Julian Day",c.jd.toFixed(4)],["Coordinates",`${c.inp.lat}, ${c.inp.lon}`],["Chart Style","South Indian"]].forEach(([l,v])=>{
-    html+=`<div class="detail-item"><span>${l}: </span><span>${v}</span></div>`;
-  });
-  html+='</div>';
-  return html;
-}
-
-// ─── RENDER ────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════════════════════════
 function render(){
-  const data=compute();
-  const el=document.getElementById("content");
+  const c=compute();
+  const el=document.getElementById('content');
   switch(state.tab){
-    case"chart":el.innerHTML=renderChartTab(data);break;
-    case"planets":el.innerHTML=renderPlanetsTab(data);break;
-    case"dasha":el.innerHTML=renderDashaTab(data);break;
-    case"panchanga":el.innerHTML=renderPanchangaTab(data);break;
+    case'main':el.innerHTML=renderMain(c);break;
+    case'dasha':el.innerHTML=renderDasha(c);break;
+    case'graha':el.innerHTML=renderGraha(c);break;
+    case'panchanga':el.innerHTML=renderPanchanga(c);break;
   }
 }
 
-// ─── EVENTS ────────────────────────────────────────────────────────
-document.querySelectorAll(".tab").forEach(t=>{
-  t.addEventListener("click",()=>{
-    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
-    t.classList.add("active");
-    state.tab=t.dataset.tab;
-    render();
+// ═══════════════════════════════════════════════════════════════════
+// EVENTS
+// ═══════════════════════════════════════════════════════════════════
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');state.tab=t.dataset.tab;render();
   });
 });
-document.getElementById("btn-style").addEventListener("click",function(){
-  state.style=state.style==="south"?"north":"south";
-  this.textContent=state.style==="south"?"☽ South Indian":"☽ North Indian";
-  render();
+document.getElementById('btn-style').addEventListener('click',function(){
+  state.style=state.style==='south'?'north':'south';
+  this.textContent=state.style==='south'?'☽ South Indian':'☽ North Indian';render();
 });
-document.getElementById("btn-d9").addEventListener("click",function(){
+document.getElementById('btn-d9').addEventListener('click',function(){
   state.showD9=!state.showD9;
-  this.textContent=state.showD9?"⛧ D1 + D9":"⛧ D1 Only";
-  this.classList.toggle("active",state.showD9);
+  this.textContent=state.showD9?'⛧ D1 + D9':'⛧ D1 Only';
+  this.classList.toggle('active',state.showD9);render();
+});
+document.getElementById('btn-now').addEventListener('click',function(){
+  const now=new Date();
+  document.getElementById('inp-date').value=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+  document.getElementById('inp-time').value=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
   render();
 });
-["inp-name","inp-date","inp-time","inp-lat","inp-lon","inp-ayan"].forEach(id=>{
-  document.getElementById(id).addEventListener("change",render);
+['inp-name','inp-date','inp-time','inp-lat','inp-lon','inp-tz','inp-ayan','inp-loc'].forEach(id=>{
+  document.getElementById(id).addEventListener('change',render);
+  document.getElementById(id).addEventListener('input',function(){clearTimeout(this._t);this._t=setTimeout(render,300)});
 });
 
-// Initial render
 render();
 </script>
 </body>
