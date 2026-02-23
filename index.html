@@ -26,7 +26,7 @@ header{padding:24px 0 16px;text-align:center;border-bottom:1px solid rgba(200,50
 h1{font-size:clamp(24px,4vw,38px);font-weight:900;background:linear-gradient(180deg,#ff4444 0%,#8b0000 40%,#4a0000 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:4px;filter:drop-shadow(0 0 20px rgba(139,0,0,.5));animation:flicker 4s ease-in-out infinite}
 .header-line{width:120px;height:1px;margin:12px auto 0;background:linear-gradient(90deg,transparent,rgba(200,50,50,.4),transparent)}
 
-.panel{background:rgba(10,2,5,.6);border:1px solid rgba(200,50,50,.15);border-radius:6px;padding:16px;margin-bottom:16px;backdrop-filter:blur(10px)}
+.panel{background:rgba(10,2,5,.6);border:1px solid rgba(200,50,50,.15);border-radius:6px;padding:16px;margin-bottom:16px;backdrop-filter:blur(10px);overflow:visible}
 .panel-title{font-size:12px;letter-spacing:3px;color:rgba(255,100,100,.6);text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(200,50,50,.12);display:flex;align-items:center;gap:8px}
 .panel-title::before{content:'⛧';font-size:10px;color:rgba(200,50,50,.4)}
 
@@ -108,7 +108,7 @@ footer{padding:20px 0;text-align:center;border-top:1px solid rgba(200,50,50,.08)
     <div class="form-group" style="position:relative">
       <label>Location</label>
       <input id="inp-loc" type="text" value="Fremont, California" autocomplete="off" placeholder="Type a city...">
-      <div id="loc-dropdown" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:100;max-height:240px;overflow-y:auto;background:rgba(20,5,10,.97);border:1px solid rgba(200,50,50,.35);border-top:none;border-radius:0 0 4px 4px;box-shadow:0 8px 24px rgba(0,0,0,.6)"></div>
+      <div id="loc-dropdown" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:9999;max-height:260px;overflow-y:auto;background:#1a050a;border:1px solid rgba(200,50,50,.45);border-top:none;border-radius:0 0 5px 5px;box-shadow:0 10px 30px rgba(0,0,0,.8)"></div>
     </div>
   </div>
   <div class="form-row" style="margin-top:8px">
@@ -577,10 +577,11 @@ document.getElementById('btn-now').addEventListener('click',function(){
   document.getElementById('inp-time').value=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
   render();
 });
-['inp-name','inp-date','inp-time','inp-lat','inp-lon','inp-tz','inp-ayan','inp-loc'].forEach(id=>{
+['inp-name','inp-date','inp-time','inp-lat','inp-lon','inp-tz','inp-ayan'].forEach(id=>{
   document.getElementById(id).addEventListener('change',render);
   document.getElementById(id).addEventListener('input',function(){clearTimeout(this._t);this._t=setTimeout(render,300)});
 });
+document.getElementById('inp-loc').addEventListener('change',render);
 
 render();
 
@@ -597,6 +598,19 @@ const CITIES=[
 ["Atlanta, GA, USA",33.7490,-84.3880,-5],["Miami, FL, USA",25.7617,-80.1918,-5],["Minneapolis, MN, USA",44.9778,-93.2650,-6],["Detroit, MI, USA",42.3314,-83.0458,-5],
 ["Honolulu, HI, USA",21.3069,-157.8583,-10],["Anchorage, AK, USA",61.2181,-149.9003,-9],["Salt Lake City, UT, USA",40.7608,-111.8910,-7],["Fremont, CA, USA",37.5585,-122.0105,-8],
 ["Taos, NM, USA",36.4072,-105.5734,-7],["Santa Fe, NM, USA",35.6870,-105.9378,-7],["Albuquerque, NM, USA",35.0844,-106.6504,-7],
+["Cleveland, OH, USA",41.4993,-81.6944,-5],["Columbus, OH, USA",39.9612,-82.9988,-5],["Cincinnati, OH, USA",39.1031,-84.5120,-5],
+["Pittsburgh, PA, USA",40.4406,-79.9959,-5],["Baltimore, MD, USA",39.2904,-76.6122,-5],["Milwaukee, WI, USA",43.0389,-87.9065,-6],
+["Indianapolis, IN, USA",39.7684,-86.1581,-5],["Charlotte, NC, USA",35.2271,-80.8431,-5],["Raleigh, NC, USA",35.7796,-78.6382,-5],
+["Memphis, TN, USA",35.1495,-90.0490,-6],["New Orleans, LA, USA",29.9511,-90.0715,-6],["Oklahoma City, OK, USA",35.4676,-97.5164,-6],
+["Kansas City, MO, USA",39.0997,-94.5786,-6],["St. Louis, MO, USA",38.6270,-90.1994,-6],["Tampa, FL, USA",27.9506,-82.4572,-5],
+["Orlando, FL, USA",28.5383,-81.3792,-5],["Sacramento, CA, USA",38.5816,-121.4944,-8],["Tucson, AZ, USA",32.2226,-110.9747,-7],
+["Omaha, NE, USA",41.2565,-95.9345,-6],["Tulsa, OK, USA",36.1540,-95.9928,-6],["Richmond, VA, USA",37.5407,-77.4360,-5],
+["Buffalo, NY, USA",42.8864,-78.8784,-5],["Rochester, NY, USA",43.1566,-77.6088,-5],["Hartford, CT, USA",41.7658,-72.6734,-5],
+["Providence, RI, USA",41.8240,-71.4128,-5],["Louisville, KY, USA",38.2527,-85.7585,-5],["Birmingham, AL, USA",33.5207,-86.8025,-6],
+["Des Moines, IA, USA",41.5868,-93.6250,-6],["Boise, ID, USA",43.6150,-116.2023,-7],["Spokane, WA, USA",47.6588,-117.4260,-8],
+["El Paso, TX, USA",31.7619,-106.4850,-7],["Reno, NV, USA",39.5296,-119.8138,-8],["Little Rock, AR, USA",34.7465,-92.2896,-6],
+["Charleston, SC, USA",32.7765,-79.9311,-5],["Savannah, GA, USA",32.0809,-81.0912,-5],["Madison, WI, USA",43.0731,-89.4012,-6],
+["Knoxville, TN, USA",35.9606,-83.9207,-5],["Chattanooga, TN, USA",35.0456,-85.3097,-5],["Asheville, NC, USA",35.5951,-82.5515,-5],
 ["Toronto, ON, Canada",43.6532,-79.3832,-5],["Vancouver, BC, Canada",49.2827,-123.1207,-8],["Montreal, QC, Canada",45.5017,-73.5673,-5],["Calgary, AB, Canada",51.0447,-114.0719,-7],
 ["Mexico City, Mexico",19.4326,-99.1332,-6],["Guadalajara, Mexico",20.6597,-103.3496,-6],["Havana, Cuba",23.1136,-82.3666,-5],
 // South America
